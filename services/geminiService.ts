@@ -1,11 +1,11 @@
-
 import { GoogleGenAI, Type } from "@google/genai";
 
 export class GeminiMusicService {
   private ai: GoogleGenAI;
 
   constructor() {
-    this.ai = new GoogleGenAI({ apiKey: process.env.API_KEY || '' });
+    // Guideline: MUST use new GoogleGenAI({ apiKey: process.env.API_KEY })
+    this.ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
   }
 
   async getMusicRecommendations(prompt: string) {
