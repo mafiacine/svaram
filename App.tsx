@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { Tab, Track, RepeatMode } from './types';
 import { MOCK_TRACKS, Icons } from './constants';
@@ -15,7 +14,6 @@ const App: React.FC = () => {
     return saved !== null ? JSON.parse(saved) : true;
   });
   
-  // Playback settings
   const [isShuffle, setIsShuffle] = useState(false);
   const [repeatMode, setRepeatMode] = useState<RepeatMode>(RepeatMode.OFF);
 
@@ -37,9 +35,9 @@ const App: React.FC = () => {
 
   useEffect(() => {
     localStorage.setItem('svaram_theme', JSON.stringify(isDarkMode));
+    document.body.style.backgroundColor = isDarkMode ? '#000' : '#f9fafb';
   }, [isDarkMode]);
 
-  // Optimized Tab Loading
   useEffect(() => {
     if (!loadedTabs.has(activeTab)) {
       setIsLoadingView(true);
@@ -50,14 +48,13 @@ const App: React.FC = () => {
           return next;
         });
         setIsLoadingView(false);
-      }, 800);
+      }, 700);
       return () => clearTimeout(timer);
     } else {
       setIsLoadingView(false);
     }
-  }, [activeTab]);
+  }, [activeTab, loadedTabs]);
 
-  // Sync isPlaying with Audio element
   useEffect(() => {
     if (audioRef.current && currentTrack) {
       if (isPlaying) {
@@ -305,18 +302,18 @@ const App: React.FC = () => {
         </div>
       )}
 
-      <nav className={`h-[76px] border-t flex items-center justify-around px-3 z-[60] shrink-0 pb-1 backdrop-blur-xl transition-colors duration-500 ${isDarkMode ? 'bg-white/5 border-white/5' : 'bg-white/80 border-gray-200'}`}>
+      <nav className={`h-[76px] border-t flex items-center justify-around px-3 z-[60] shrink-0 pb-1 backdrop-blur-xl transition-colors duration-500 ${isDarkMode ? 'bg-white/5 border-white/5' : 'bg-white/90 border-gray-200'}`}>
         {[
           { tab: Tab.HOME, icon: <Icons.Home />, label: 'Home' },
           { tab: Tab.PLAYLIST, icon: <Icons.Playlist />, label: 'Library' },
-          { tab: Tab.SEARCH, icon: <Icons.Search />, label: 'Discover' },
-          { tab: Tab.PLAYER, icon: <Icons.Player />, label: 'Live' },
-          { tab: Tab.SETTINGS, icon: <Icons.Settings />, label: 'Config' }
+          { tab: Tab.SEARCH, icon: <Icons.Search />, label: 'Search' },
+          { tab: Tab.PLAYER, icon: <Icons.Player />, label: 'Player' },
+          { tab: Tab.SETTINGS, icon: <Icons.Settings />, label: 'Settings' }
         ].map(({ tab, icon, label }) => (
           <button 
             key={tab}
             onClick={() => setActiveTab(tab)}
-            className={`flex flex-col items-center gap-1.5 transition-all duration-500 px-3 py-1 rounded-2xl ${activeTab === tab ? 'text-violet-500 scale-110' : (isDarkMode ? 'text-white/20' : 'text-gray-400')}`}
+            className={`flex flex-col items-center gap-1.5 transition-all duration-500 px-3 py-1 rounded-2xl ${activeTab === tab ? 'text-violet-500 scale-110' : (isDarkMode ? 'text-white/20 hover:text-white/40' : 'text-gray-400 hover:text-gray-600')}`}
           >
             <div className={`w-5 h-5 transition-transform duration-500 ${activeTab === tab ? 'rotate-[-5deg]' : ''}`}>{icon}</div>
             <span className={`text-[8px] font-black uppercase tracking-[0.1em] transition-opacity duration-500 ${activeTab === tab ? 'opacity-100' : 'opacity-60'}`}>{label}</span>
@@ -328,6 +325,7 @@ const App: React.FC = () => {
         @keyframes loading { 0% { transform: translateX(-100%); } 100% { transform: translateX(450%); } }
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
       `}</style>
     </div>
   );
