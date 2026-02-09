@@ -4,65 +4,264 @@ import { Track } from './types';
 
 export const MOCK_TRACKS: Track[] = [
   {
-    id: '1',
-    title: 'Midnight City',
-    artist: 'M83',
-    cover: 'https://picsum.photos/seed/track1/400/400',
-    audioUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3',
-    isOffline: true,
-    duration: 243,
-    category: 'Electronic',
-    popularity: 95,
-    releaseDate: '2011-10-18'
-  },
-  {
-    id: '2',
-    title: 'Starboy',
-    artist: 'The Weeknd',
-    cover: 'https://picsum.photos/seed/track2/400/400',
-    audioUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3',
-    isOffline: true,
-    duration: 230,
-    category: 'Pop',
-    popularity: 98,
-    releaseDate: '2016-11-25'
-  },
-  {
-    id: '3',
-    title: 'Blinding Lights',
-    artist: 'The Weeknd',
-    cover: 'https://picsum.photos/seed/track3/400/400',
-    audioUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3',
-    isOffline: false,
-    duration: 200,
-    category: 'Pop',
-    popularity: 99,
-    releaseDate: '2019-11-29'
-  },
-  {
-    id: '4',
-    title: 'Heat Waves',
-    artist: 'Glass Animals',
-    cover: 'https://picsum.photos/seed/track4/400/400',
-    audioUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3',
-    isOffline: true,
-    duration: 238,
-    category: 'Indie',
-    popularity: 92,
-    releaseDate: '2020-06-29'
-  },
-  {
-    id: '5',
-    title: 'Levitating',
-    artist: 'Dua Lipa',
-    cover: 'https://picsum.photos/seed/track5/400/400',
-    audioUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3',
-    isOffline: false,
-    duration: 203,
-    category: 'Pop',
-    popularity: 94,
-    releaseDate: '2020-10-01'
-  }
+      id: '1',
+      title: 'Ranjhe Nu Heer',
+      artist: 'Jubin Nautiyal',
+      cover: 'https://pagalnew.com/coverimages/ranjhe-nu-heer-kis-kisko-pyaar-karoon-2-500-500.jpg',
+      audioUrl: 'https://128.pagalnew.com/download-128k.php?id=52715,
+      isOffline: flase, 
+      duration: 210,
+      category: 'Boliwood',
+      popularity: 94,
+      releaseDate: '2026-02-01'
+    },
+
+    {
+      id: '2',
+      title: 'Phurr',
+      artist: 'Yo Yo Honey Singh & Josh Brar & Leo Grewal',
+      cover: 'https://pagalnew.com/coverimages/phurr-kis-kisko-pyaar-karoon-2-500-500.jpg',
+      audioUrl: 'https://128.pagalnew.com/download-128k.php?id=52611,
+      isOffline: flase, 
+      duration: 210,
+      category: 'Boliwood',
+      popularity: 94,
+      releaseDate: '2026-02-01'
+    },
+
+    {
+      id: '3',
+      title: 'Ez Ez {Dhurandhar}',
+      artist: 'Diljit Dosanjh & Hanumankind & Shashwat Sachdev',
+      cover: 'https://pagalnew.com/coverimages/ez-ez-dhurandhar-500-500.jpg',
+      audioUrl: 'https://128.pagalnew.com/download-128k.php?id=52704,
+      isOffline: flase, 
+      duration: 210,
+      category: 'Boliwood',
+      popularity: 94,
+      releaseDate: '2026-02-01'
+    },
+
+    {
+      id: '4',
+      title: 'Title Track Song {Dhurandhar}',
+      artist: 'Hanumankind & Jasmine Sandlas',
+      cover: 'https://128.pagalnew.com/download-128k.php?id=52704',
+      audioUrl: 'https://128.pagalnew.com/download-128k.php?id=52483,
+      isOffline: flase, 
+      duration: 210,
+      category: 'Boliwood',
+      popularity: 94,
+      releaseDate: '2026-02-01'
+    },
+
+    {
+      id: '5',
+      title: 'Title Track {Tere Ishk Mein}',
+      artist: 'Arijit Singh',
+      cover: 'https://pagalnew.com/coverimages/album/tere-ishk-mein-2025-500-500.jpg',
+      audioUrl: 'https://128.pagalnew.com/download-128k.php?id=52484,
+      isOffline: flase, 
+      duration: 210,
+      category: 'Boliwood',
+      popularity: 94,
+      releaseDate: '2026-02-01'
+    },
+
+    {
+      id: '6',
+      title: 'Ek Mulaqaat',
+      artist: 'Stebin Ben',
+      cover: 'https://pagalnew.com/coverimages/Ek-Mulaqaat-Stebin-Ben-500-500.jpg',
+      audioUrl: 'https://128.pagalnew.com/download-128k.php?id=52778,
+      isOffline: flase, 
+      duration: 210,
+      category: 'Boliwood',
+      popularity: 94,
+      releaseDate: '2026-02-01'
+    },
+
+    {
+      id: '7',
+      title: 'Juda Hue Ho',
+      artist: 'Akhil Sachdeva',
+      cover: 'https://pagalnew.com/coverimages/juda-hue-ho-akhil-sachdeva-500-500.jpg',
+      audioUrl: 'https://128.pagalnew.com/download-128k.php?id=52719,
+      isOffline: flase, 
+      duration: 210,
+      category: 'Boliwood',
+      popularity: 94,
+      releaseDate: '2026-02-01'
+    },
+
+    {
+      id: '8',
+      title: 'Hum Dono',
+      artist: 'Shekhar Ravjiani',
+      cover: 'https://pagalnew.com/coverimages/hum-dono-tu-meri-main-tera-main-tera-tu-meri-500-500.jpg',
+      audioUrl: 'https://128.pagalnew.com/download-128k.php?id=52716,
+      isOffline: flase, 
+      duration: 210,
+      category: 'Boliwood',
+      popularity: 94,
+      releaseDate: '2026-02-01'
+    },
+
+    {
+      id: '9',
+      title: 'Naach Meri Naagin',
+      artist: 'Neelkamal Singh & Simar Kaur',
+      cover: 'https://pagalnew.com/coverimages/Naach-Meri-Naagin-Paradox-500-500.jpg',
+      audioUrl: 'https://128.pagalnew.com/download-128k.php?id=52565,
+      isOffline: flase, 
+      duration: 210,
+      category: 'Boliwood',
+      popularity: 94,
+      releaseDate: '2026-02-01'
+    },
+
+    {
+      id: '10',
+      title: 'Woofer',
+      artist: 'Yo Yo Honey Singh',
+      cover: 'https://pagalnew.com/coverimages/woofer-51-glorious-days-500-500.jpg',
+      audioUrl: 'https://128.pagalnew.com/download-128k.php?id=52339,
+      isOffline: flase, 
+      duration: 210,
+      category: 'Boliwood',
+      popularity: 94,
+      releaseDate: '2026-02-01'
+    },
+
+    {
+      id: '11',
+      title: 'Aadat',
+      artist: 'Yo Yo Honey Singh & AP Dhillon',
+      cover: 'https://pagalnew.com/coverimages/aadat-51-glorious-days-500-500.jpg',
+      audioUrl: 'https://128.pagalnew.com/download-128k.php?id=52290,
+      isOffline: flase, 
+      duration: 210,
+      category: 'Boliwood',
+      popularity: 94,
+      releaseDate: '2026-02-01'
+    },
+
+    {
+      id: '12',
+      title: 'Barsaat Mein',
+      artist: 'Yo Yo Honey Singh',
+      cover: 'https://pagalnew.com/coverimages/barsaat-mein-51-glorious-days-500-500.jpg',
+      audioUrl: 'https://128.pagalnew.com/download-128k.php?id=52292,
+      isOffline: flase, 
+      duration: 210,
+      category: 'Top',
+      popularity: 94,
+      releaseDate: '2026-02-01'
+    },
+
+    {
+      id: '13',
+      title: 'Jhoom Sharaabi',
+      artist: 'Yo Yo Honey Singh & Athar Hayat',
+      cover: 'https://pagalnew.com/coverimages/jhoom-sharaabi-de-de-pyaar-de-2-500-500.jpg',
+      audioUrl: 'https://128.pagalnew.com/download-128k.php?id=52566,
+      isOffline: flase, 
+      duration: 210,
+      category: 'Boliwood',
+      popularity: 94,
+      releaseDate: '2026-02-01'
+    },
+
+    {
+      id: '14',
+      title: 'Raat Bhar',
+      artist: 'Aditya Rikhari & Payal Dev',
+      cover: 'https://pagalnew.com/coverimages/raat-bhar-de-de-pyaar-de-2-500-500.jpg',
+      audioUrl: 'https://128.pagalnew.com/download-128k.php?id=52485,
+      isOffline: flase, 
+      duration: 210,
+      category: 'Boliwood',
+      popularity: 94,
+      releaseDate: '2026-02-01'
+    },
+
+    {
+      id: '15',
+      title: 'Baabul Ve',
+      artist: 'Payal Dev & Aditya Dev & Shreya Ghoshal & Kumaar',
+      cover: 'https://pagalnew.com/coverimages/Baabul-Ve-De-De-Pyaar-De-2-500-500.jpg',
+      audioUrl: 'https://128.pagalnew.com/download-128k.php?id=52576,
+      isOffline: flase, 
+      duration: 210,
+      category: 'Boliwood',
+      popularity: 94,
+      releaseDate: '2026-02-01'
+    },
+
+    {
+      id: '16',
+      title: 'Aakhri Salaam',
+      artist: 'Sagar Bhatia',
+      cover: 'https://pagalnew.com/coverimages/Aakhri-Salaam-De-De-Pyaar-De-2-500-500.jpg',
+      audioUrl: 'https://128.pagalnew.com/download-128k.php?id=52575,
+      isOffline: flase, 
+      duration: 210,
+      category: 'Boliwood',
+      popularity: 94,
+      releaseDate: '2026-02-01'
+    },
+
+    {
+      id: '17',
+      title: 'Coca Cola 2',
+      artist: 'Tony Kakkar & Neha Kakkar',
+      cover: 'https://pagalnew.com/coverimages/Coca-Cola-2-Tony-Kakkar-500-500.jpg',
+      audioUrl: 'https://128.pagalnew.com/download-128k.php?id=52776,
+      isOffline: flase, 
+      duration: 210,
+      category: 'Boliwood',
+      popularity: 94,
+      releaseDate: '2026-02-01'
+    },
+
+    {
+      id: '18',
+      title: 'Wallah Wallah',
+      artist: 'Badshah & Davido',
+      cover: 'https://pagalnew.com/coverimages/Wallah-Wallah-Badshah-500-500.jpg',
+      audioUrl: 'https://128.pagalnew.com/download-128k.php?id=52573,
+      isOffline: flase, 
+      duration: 210,
+      category: 'Boliwood',
+      popularity: 94,
+      releaseDate: '2026-02-01'
+    },
+
+    {
+      id: '19',
+      title: 'Juda Hue Ho',
+      artist: 'Akhil Sachdeva',
+      cover: 'https://pagalnew.com/coverimages/juda-hue-ho-akhil-sachdeva-500-500.jpg',
+      audioUrl: 'www.site.wapaxo.com/filedownload/100444/juda-hue-ho-akhil-sachdeva-128-kbps-(site.wapaxo.com).mp3,
+      isOffline: flase, 
+      duration: 210,
+      category: 'Boliwood',
+      popularity: 94,
+      releaseDate: '2026-02-01'
+    },
+
+    {
+      id: '20',
+      title: 'Aaj Ki Raat',
+      artist: 'Madhubanti Bagchi & Divya Kumar',
+      cover: 'https://pagalnew.com/coverimages/aaj-ki-raat-stree-2-500-500.jpg',
+      audioUrl: 'https://128.pagalnew.com/download-128k.php?id=47892,
+      isOffline: flase, 
+      duration: 210,
+      category: 'Boliwood',
+      popularity: 94,
+      releaseDate: '2026-02-01'
+    }
 ];
 
 export const Icons = {
