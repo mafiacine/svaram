@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Track } from './types';
 
@@ -11,7 +10,7 @@ export const MOCK_TRACKS: Track[] = [
     audioUrl: 'https://128.pagalnew.com/download-128k.php?id=52715',
     isOffline: true,
     duration: 243,
-    category: 'Boliwood',
+    category: 'Bollywood',
     popularity: 95,
     releaseDate: '2011-10-18'
   },
@@ -23,7 +22,7 @@ export const MOCK_TRACKS: Track[] = [
     audioUrl: 'https://128.pagalnew.com/download-128k.php?id=52611',
     isOffline: true,
     duration: 230,
-    category: 'Boliwood',
+    category: 'Bollywood',
     popularity: 98,
     releaseDate: '2016-11-25'
   },
@@ -43,7 +42,7 @@ export const MOCK_TRACKS: Track[] = [
     id: '4',
     title: 'Title Track Song {Dhurandhar}',
     artist: 'Hanumankind & Jasmine Sandlas',
-    cover: 'https://128.pagalnew.com/download-128k.php?id=52704',
+    cover: 'https://pagalnew.com/coverimages/ez-ez-dhurandhar-500-500.jpg',
     audioUrl: 'https://128.pagalnew.com/download-128k.php?id=52483',
     isOffline: true,
     duration: 238,
