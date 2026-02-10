@@ -10,7 +10,7 @@ export const MOCK_TRACKS: Track[] = [
     audioUrl: 'https://dd.khesari.in/files/sfd30/14931/Holi%20Paral%20Ba%204%20Ke(Khesari.in).mp3',
     isOffline: true,
     duration: 243,
-    category: 'New',
+    category: 'Holi',
     popularity: 95,
     releaseDate: '2011-10-18'
   },
@@ -106,7 +106,7 @@ export const MOCK_TRACKS: Track[] = [
     audioUrl: 'https://khesari2.in/siteuploads/files/sfd36/17976/Babuni%20Tere%20Rang%20Me%20Main%20Bhola%20Bhala%20Lalla%2056%20Inch%20Dabbang%20Ho%20Gaya(Khesari2.IN).mp3',
     isOffline: false,
     duration: 248,
-    category: 'New',
+    category: 'Holi',
     popularity: 94,
     releaseDate: '2020-10-01'
   },
@@ -154,7 +154,7 @@ export const MOCK_TRACKS: Track[] = [
     audioUrl: 'https://khesari2.in/siteuploads/files/sfd80/39753/Aso%20Ke%20Bigad%20Dela%20Holi(Khesari2.IN).mp3',
     isOffline: false,
     duration: 238,
-    category: 'New',
+    category: 'Holi',
     popularity: 94,
     releaseDate: '2020-10-01'
   },
@@ -166,7 +166,7 @@ export const MOCK_TRACKS: Track[] = [
     audioUrl: 'https://khesari2.in/siteuploads/files/sfd81/40043/Holiya%20Khelele%20Bholedani%20Sanghe%20Gaura%20Rani(Khesari2.IN).mp3',
     isOffline: false,
     duration: 258,
-    category: 'New',
+    category: 'Holi',
     popularity: 94,
     releaseDate: '2020-10-01'
   }
