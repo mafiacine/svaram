@@ -1,7 +1,6 @@
-
 export enum Tab {
   HOME = 'HOME',
-  PLAYLIST = 'PLAYLIST',
+  FOLDER = 'FOLDER',
   SEARCH = 'SEARCH',
   PLAYER = 'PLAYER',
   SETTINGS = 'SETTINGS'
