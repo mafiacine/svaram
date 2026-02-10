@@ -213,7 +213,7 @@ export const SearchView: React.FC<ViewProps> = ({ isOnline, onPlayTrack, current
   const [loadingAi, setLoadingAi] = useState(false);
   const gemini = new GeminiMusicService();
 
-  const genres = ['All', 'Pop', 'Electronic', 'Indie', 'Jazz'];
+  const genres = ['All', 'New', 'Old', 'Sad', 'Top'];
 
   const filteredTracks = useMemo(() => {
     return MOCK_TRACKS.filter(t => {
@@ -262,7 +262,6 @@ export const SearchView: React.FC<ViewProps> = ({ isOnline, onPlayTrack, current
 
       {query && isOnline && !loadingAi && aiSuggestions.length === 0 && (
           <button onClick={handleAiSearch} className="w-full bg-violet-600/10 text-violet-500 py-3 rounded-2xl text-[11px] font-black uppercase tracking-widest border border-violet-500/20 hover:bg-violet-600/20 transition-all active:scale-[0.98] shadow-lg">
-            Svaram AI Assistant ✨
           </button>
       )}
 
@@ -484,7 +483,7 @@ export const SettingsView: React.FC<{
             { label: 'Hi-Fi Audio Master', value: 'Lossless' },
             { label: 'AI Prediction Algorithm', value: 'Neural-3' },
             { label: 'Cloud Sync State', value: 'Synced' },
-            { label: 'App Version', value: '2.5.1-Native' }
+            { label: 'App Version', value: '2.5.1' }
           ].map(item => (
             <div key={item.label} className={`p-5 flex items-center justify-between transition-colors cursor-pointer group ${isDarkMode ? 'hover:bg-white/5' : 'hover:bg-black/5'}`}>
               <span className={`text-xs font-bold transition-colors ${isDarkMode ? 'text-white/60 group-hover:text-white' : 'text-gray-500 group-hover:text-gray-900'}`}>{item.label}</span>
