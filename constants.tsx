@@ -73,7 +73,43 @@ export const MOCK_TRACKS: Track[] = [
     category: 'New',
     popularity: 94,
     releaseDate: '2020-10-01'
-  }
+  },
+  {
+    id: '7',
+    title: 'Piya Mor Baurahe Chumma Lebahu Na Jane',
+    artist: 'Khesari Lal Yadav',
+    cover: 'https://khesari2.in/siteuploads/thumb/c/17264_3.jpg',
+    audioUrl: 'https://khesari2.in/siteuploads/files/sfd62/30741/Piya%20Mor%20Baurahe%20Chumma%20Lebahu%20Na%20Jane(Khesari2.IN).mp3',
+    isOffline: false,
+    duration: 274,
+    category: 'New',
+    popularity: 94,
+    releaseDate: '2020-10-01'
+  },
+  {
+    id: '8',
+    title: 'Aag Lagaibu Ka',
+    artist: 'Khesari Lal Yadav',
+    cover: 'https://khesari2.in/siteuploads/thumb/c/26352_4.jpg',
+    audioUrl: 'https://khesari2.in/siteuploads/files/sfd83/41235/%20Petrol%20Jawaniya%20Se%20Gori%20Aag%20Lagaibu%20Ka(Khesari2.IN).mp3',
+    isOffline: false,
+    duration: 248,
+    category: 'New',
+    popularity: 94,
+    releaseDate: '2020-10-01'
+  },
+  {
+    id: '9',
+    title: 'Babuni Tere Rang Mein',
+    artist: 'Pawan Singh',
+    cover: 'https://khesari2.in/siteuploads/thumb/sft36/17975_3.jpg',
+    audioUrl: 'https://khesari2.in/siteuploads/files/sfd36/17976/Babuni%20Tere%20Rang%20Me%20Main%20Bhola%20Bhala%20Lalla%2056%20Inch%20Dabbang%20Ho%20Gaya(Khesari2.IN).mp3',
+    isOffline: false,
+    duration: 248,
+    category: 'New',
+    popularity: 94,
+    releaseDate: '2020-10-01'
+  },
 ];
 
 export const Icons = {
