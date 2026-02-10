@@ -109,7 +109,7 @@ export const MOCK_TRACKS: Track[] = [
     category: 'New',
     popularity: 94,
     releaseDate: '2020-10-01'
-  },
+  }
 ];
 
 export const Icons = {
