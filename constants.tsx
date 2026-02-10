@@ -10,7 +10,7 @@ export const MOCK_TRACKS: Track[] = [
     audioUrl: 'https://dd.khesari.in/files/sfd30/14931/Holi%20Paral%20Ba%204%20Ke(Khesari.in).mp3',
     isOffline: true,
     duration: 243,
-    category: 'Holi',
+    category: 'New',
     popularity: 95,
     releaseDate: '2011-10-18'
   },
@@ -106,7 +106,7 @@ export const MOCK_TRACKS: Track[] = [
     audioUrl: 'https://khesari2.in/siteuploads/files/sfd36/17976/Babuni%20Tere%20Rang%20Me%20Main%20Bhola%20Bhala%20Lalla%2056%20Inch%20Dabbang%20Ho%20Gaya(Khesari2.IN).mp3',
     isOffline: false,
     duration: 248,
-    category: 'Holi',
+    category: 'New',
     popularity: 94,
     releaseDate: '2020-10-01'
   },
@@ -154,7 +154,7 @@ export const MOCK_TRACKS: Track[] = [
     audioUrl: 'https://khesari2.in/siteuploads/files/sfd80/39753/Aso%20Ke%20Bigad%20Dela%20Holi(Khesari2.IN).mp3',
     isOffline: false,
     duration: 238,
-    category: 'Holi',
+    category: 'New',
     popularity: 94,
     releaseDate: '2020-10-01'
   },
@@ -166,8 +166,32 @@ export const MOCK_TRACKS: Track[] = [
     audioUrl: 'https://khesari2.in/siteuploads/files/sfd81/40043/Holiya%20Khelele%20Bholedani%20Sanghe%20Gaura%20Rani(Khesari2.IN).mp3',
     isOffline: false,
     duration: 258,
-    category: 'Holi',
+    category: 'New',
     popularity: 94,
+    releaseDate: '2020-10-01'
+  },
+  {
+    id: '15',
+    title: 'Maja La Maal Pata Ke',
+    artist: 'Pawan Singh',
+    cover: 'https://khesari2.in/siteuploads/thumb/c/10740_3.jpg',
+    audioUrl: 'https://khesari2.in/siteuploads/files/sfd46/22832/Maja%20La%20Maal%20Pata%20Ke(Khesari2.IN).mp3',
+    isOffline: false,
+    duration: 288,
+    category: 'Old',
+    popularity: 94,
+    releaseDate: '2020-10-01'
+  },
+  {
+    id: '16',
+    title: 'Maare Kacha Kach Ankhiya Hiya E Kudi Navlakhiya',
+    artist: 'Pawan Singh',
+    cover: 'https://khesari2.in/siteuploads/thumb/c/10740_3.jpg',
+    audioUrl: 'https://khesari2.in/siteuploads/files/sfd46/22830/Maare%20Kacha%20Kach%20Ankhiya%20Hiya%20E%20Kudi%20Navlakhiya(Khesari2.IN).mp3',
+    isOffline: false,
+    duration: 248,
+    category: 'Old',
+    popularity: 80,
     releaseDate: '2020-10-01'
   }
 ];
