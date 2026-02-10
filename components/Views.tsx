@@ -1,3 +1,4 @@
+
 import React, { useState, useMemo } from 'react';
 import { Track, Tab, RepeatMode } from '../types';
 import { MOCK_TRACKS, Icons } from '../constants';
@@ -154,54 +155,114 @@ export const HomeView: React.FC<ViewProps> = ({ isOnline, onPlayTrack, currentTr
   );
 };
 
-export const PlaylistView: React.FC<ViewProps> = ({ isOnline, onPlayTrack, currentTrackId, downloadedIds, onToggleDownload, isDownloadingMap, isLoading, isDarkMode }) => {
-  const offlineTracks = MOCK_TRACKS.filter(t => downloadedIds.includes(t.id));
+export const FolderView: React.FC<ViewProps> = ({ isOnline, onPlayTrack, currentTrackId, downloadedIds, onToggleDownload, isDownloadingMap, isLoading, isDarkMode }) => {
+  const [selectedArtist, setSelectedArtist] = useState<string | null>(null);
+
+  const tracks = isOnline ? MOCK_TRACKS : MOCK_TRACKS.filter(t => downloadedIds.includes(t.id));
+  
+  const artistFolders = useMemo(() => {
+    const map = new Map<string, { count: number, cover: string }>();
+    tracks.forEach(t => {
+      if (!map.has(t.artist)) {
+        map.set(t.artist, { count: 1, cover: t.cover });
+      } else {
+        const current = map.get(t.artist)!;
+        map.set(t.artist, { ...current, count: current.count + 1 });
+      }
+    });
+    return Array.from(map.entries()).sort((a, b) => a[0].localeCompare(b[0]));
+  }, [tracks]);
+
+  const artistTracks = useMemo(() => {
+    if (!selectedArtist) return [];
+    return tracks.filter(t => t.artist === selectedArtist);
+  }, [selectedArtist, tracks]);
+
+  if (selectedArtist) {
+    return (
+      <div className="p-4 space-y-6 animate-fadeIn pb-44">
+        <header className="flex items-center gap-4">
+          <button 
+            onClick={() => setSelectedArtist(null)}
+            className={`p-2 rounded-full transition-all active:scale-75 ${isDarkMode ? 'bg-white/10 text-white' : 'bg-black/5 text-black'}`}
+          >
+            <Icons.ArrowLeft className="w-5 h-5" />
+          </button>
+          <div>
+            <h1 className={`text-xl font-bold tracking-tight ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>{selectedArtist}</h1>
+            <p className={`text-[10px] font-black uppercase tracking-widest ${isDarkMode ? 'text-white/40' : 'text-gray-500'}`}>{artistTracks.length} Songs</p>
+          </div>
+        </header>
+
+        <div className="space-y-1">
+          {artistTracks.map(track => (
+            <TrackItem 
+              key={track.id}
+              track={track}
+              isActive={currentTrackId === track.id}
+              isDownloaded={downloadedIds.includes(track.id)}
+              isOnline={isOnline}
+              downloadProgress={isDownloadingMap[track.id]}
+              onPlay={() => onPlayTrack(track)}
+              onDownload={() => onToggleDownload(track.id)}
+              isDarkMode={isDarkMode}
+            />
+          ))}
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="p-4 space-y-6 animate-fadeIn pb-44">
-      <h1 className={`text-2xl font-bold tracking-tight ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>Library</h1>
-      
-      <div className="grid grid-cols-2 gap-3">
-        <div className={`aspect-[1.1] glass rounded-3xl p-4 flex flex-col justify-end bg-gradient-to-br border active:scale-95 transition-all ${isDarkMode ? 'from-violet-600/20 via-transparent to-transparent border-white/5' : 'from-violet-500/10 to-transparent border-gray-200'}`}>
-          <Icons.Playlist className="w-7 h-7 mb-3 text-violet-500" />
-          <h3 className={`font-bold text-sm leading-none ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>Favorites</h3>
-          <p className={`text-[10px] mt-1 font-medium ${isDarkMode ? 'text-white/40' : 'text-gray-500'}`}>42 tracks</p>
+      <header className="flex justify-between items-center">
+        <h1 className={`text-2xl font-bold tracking-tight ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>Folders</h1>
+        <div className={`flex items-center gap-2 px-3 py-1 rounded-full text-[9px] font-black uppercase tracking-widest ${isDarkMode ? 'bg-white/5 text-white/40' : 'bg-black/5 text-black/40'}`}>
+          {artistFolders.length} Artists
         </div>
-        <div className={`aspect-[1.1] glass rounded-3xl p-4 flex flex-col justify-end bg-gradient-to-br border active:scale-95 transition-all ${isDarkMode ? 'from-fuchsia-600/20 via-transparent to-transparent border-white/5' : 'from-fuchsia-500/10 to-transparent border-gray-200'}`}>
-          <Icons.WifiOff className="w-7 h-7 mb-3 text-fuchsia-500" />
-          <h3 className={`font-bold text-sm leading-none ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>Cached</h3>
-          <p className={`text-[10px] mt-1 font-medium ${isDarkMode ? 'text-white/40' : 'text-gray-500'}`}>{downloadedIds.length} tracks</p>
-        </div>
+      </header>
+
+      <div className="grid grid-cols-2 gap-4">
+        {artistFolders.map(([artist, data]) => (
+          <div 
+            key={artist}
+            onClick={() => setSelectedArtist(artist)}
+            className={`aspect-square relative group overflow-hidden rounded-[2rem] glass border transition-all active:scale-[0.98] cursor-pointer shadow-lg flex flex-col justify-end ${isDarkMode ? 'border-white/5' : 'border-gray-200'}`}
+          >
+            {/* Artist Cover Background */}
+            <img 
+                src={data.cover} 
+                alt={artist} 
+                className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-700" 
+            />
+            {/* Gradient Overlay */}
+            <div className={`absolute inset-0 bg-gradient-to-t ${isDarkMode ? 'from-black via-black/40 to-transparent' : 'from-black/80 via-black/20 to-transparent'}`} />
+            
+            <div className="relative z-10 p-5">
+              <div className="flex items-center justify-between mb-2">
+                <div className={`w-8 h-8 rounded-xl flex items-center justify-center backdrop-blur-md border border-white/20 bg-white/10 text-white`}>
+                    <Icons.Folder className="w-4 h-4" />
+                </div>
+              </div>
+              <h3 className="font-bold text-sm leading-tight truncate mb-1 text-white">{artist}</h3>
+              <p className="text-[10px] font-black uppercase tracking-[0.1em] text-white/60">
+                {data.count} {data.count === 1 ? 'Song' : 'Songs'}
+              </p>
+            </div>
+
+            <div className="absolute bottom-0 left-0 right-0 h-1 transition-all group-hover:h-2 bg-violet-500/20">
+               <div className="h-full bg-violet-500 w-0 group-hover:w-full transition-all duration-500" />
+            </div>
+          </div>
+        ))}
       </div>
 
-      <div className="mt-4">
-        <h2 className={`text-[10px] font-black mb-3 uppercase tracking-[0.15em] ${isDarkMode ? 'text-white/30' : 'text-gray-400'}`}>Available Offline</h2>
-        <div className="space-y-1">
-          {isLoading ? [1,2,3].map(i => <SkeletonTrack key={i} isDarkMode={isDarkMode} />) : offlineTracks.length > 0 ? (
-            offlineTracks.map(track => (
-              <TrackItem 
-                key={track.id}
-                track={track}
-                isActive={currentTrackId === track.id}
-                isDownloaded={true}
-                isOnline={isOnline}
-                downloadProgress={isDownloadingMap[track.id]}
-                onPlay={() => onPlayTrack(track)}
-                onDownload={() => onToggleDownload(track.id)}
-                isDarkMode={isDarkMode}
-              />
-            ))
-          ) : (
-            <div className={`py-16 text-center glass rounded-[2rem] border backdrop-blur-3xl shadow-2xl transition-all ${isDarkMode ? 'border-white/5' : 'border-gray-200 bg-white/50'}`}>
-              <div className={`w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 border ${isDarkMode ? 'bg-white/5 border-white/10' : 'bg-gray-100 border-gray-200'}`}>
-                <Icons.Download className={`w-6 h-6 ${isDarkMode ? 'opacity-20' : 'opacity-40 text-gray-400'}`} />
-              </div>
-              <p className={`text-xs font-medium ${isDarkMode ? 'text-white/30' : 'text-gray-400'}`}>No offline tracks found</p>
-              <p className={`text-[10px] mt-1 ${isDarkMode ? 'text-white/10' : 'text-gray-300'}`}>Tracks you download appear here</p>
-            </div>
-          )}
+      {artistFolders.length === 0 && (
+        <div className="py-20 text-center">
+          <Icons.Folder className={`w-12 h-12 mx-auto mb-4 opacity-10 ${isDarkMode ? 'text-white' : 'text-black'}`} />
+          <p className={`text-xs font-medium uppercase tracking-widest ${isDarkMode ? 'text-white/20' : 'text-gray-300'}`}>Empty Folder</p>
         </div>
-      </div>
+      )}
     </div>
   );
 };
