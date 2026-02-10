@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { Tab, Track, RepeatMode } from './types';
 import { MOCK_TRACKS, Icons } from './constants';
 import Player from './components/Player';
-import { HomeView, PlaylistView, SearchView, SettingsView, PlayerTabView } from './components/Views';
+import { HomeView, FolderView, SearchView, SettingsView, PlayerTabView } from './components/Views';
 
 const App: React.FC = () => {
   const [isOnline, setIsOnline] = useState(window.navigator.onLine);
@@ -222,7 +222,7 @@ const App: React.FC = () => {
 
     switch (activeTab) {
       case Tab.HOME: return <HomeView {...commonProps} />;
-      case Tab.PLAYLIST: return <PlaylistView {...commonProps} />;
+      case Tab.FOLDER: return <FolderView {...commonProps} />;
       case Tab.SEARCH: return <SearchView {...commonProps} />;
       case Tab.PLAYER: return (
         <PlayerTabView 
@@ -305,7 +305,7 @@ const App: React.FC = () => {
       <nav className={`h-[76px] border-t flex items-center justify-around px-3 z-[60] shrink-0 pb-1 backdrop-blur-xl transition-colors duration-500 ${isDarkMode ? 'bg-white/5 border-white/5' : 'bg-white/90 border-gray-200'}`}>
         {[
           { tab: Tab.HOME, icon: <Icons.Home />, label: 'Home' },
-          { tab: Tab.PLAYLIST, icon: <Icons.Playlist />, label: 'Library' },
+          { tab: Tab.FOLDER, icon: <Icons.Folder />, label: 'Folder' },
           { tab: Tab.SEARCH, icon: <Icons.Search />, label: 'Search' },
           { tab: Tab.PLAYER, icon: <Icons.Player />, label: 'Player' },
           { tab: Tab.SETTINGS, icon: <Icons.Settings />, label: 'Settings' }
