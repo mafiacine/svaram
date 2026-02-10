@@ -265,7 +265,7 @@ export const SearchView: React.FC<ViewProps> = ({ isOnline, onPlayTrack, current
   const [loadingAi, setLoadingAi] = useState(false);
   const gemini = new GeminiMusicService();
 
-  const genres = ['All', 'New', 'Old', 'Sad', 'Top'];
+  const genres = ['All', 'New', 'Old', 'Sad', 'Holi'];
 
   const filteredTracks = useMemo(() => {
     return MOCK_TRACKS.filter(t => {
