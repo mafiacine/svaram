@@ -109,6 +109,66 @@ export const MOCK_TRACKS: Track[] = [
     category: 'New',
     popularity: 94,
     releaseDate: '2020-10-01'
+  },
+  {
+    id: '10',
+    title: 'Bhatar Rangdar Ha Maar Di Satake',
+    artist: 'Rakesh Mishra',
+    cover: 'https://khesari2.in/siteuploads/thumb/c/26139_3.jpg',
+    audioUrl: 'https://khesari2.in/siteuploads/files/sfd82/40997/Bhatar%20Rangdar%20Ha%20Maar%20Di%20Satake(Khesari2.IN).mp3',
+    isOffline: false,
+    duration: 248,
+    category: 'New',
+    popularity: 94,
+    releaseDate: '2020-10-01'
+  },
+  {
+    id: '11',
+    title: 'Palang Tut Gail',
+    artist: 'Rakesh Mishra',
+    cover: 'https://khesari2.in/siteuploads/thumb/c/25697_3.jpg',
+    audioUrl: 'https://khesari2.in/siteuploads/files/sfd82/40526/Palang%20Tut%20Gail%20Mp3%20Song(Khesari2.IN).mp3',
+    isOffline: false,
+    duration: 228,
+    category: 'New',
+    popularity: 94,
+    releaseDate: '2020-10-01'
+  },
+  {
+    id: '12',
+    title: 'Muhe Hamara Uhe Jabse Lagal Ba Ae Raja Ji',
+    artist: 'Rakesh Mishra',
+    cover: 'https://khesari2.in/siteuploads/thumb/c/25410_3.jpg',
+    audioUrl: 'https://khesari2.in/siteuploads/files/sfd81/40209/Muhe%20Hamara%20Uhe%20Jabse%20Lagal%20Ba%20Ae%20Raja%20Ji(Khesari2.IN).mp3',
+    isOffline: false,
+    duration: 298,
+    category: 'New',
+    popularity: 94,
+    releaseDate: '2020-10-01'
+  },
+  {
+    id: '13',
+    title: 'Aso Ke Bigad Dela Holi',
+    artist: 'Rakesh Mishra',
+    cover: 'https://khesari2.in/siteuploads/thumb/c/24988_3.jpg',
+    audioUrl: 'https://khesari2.in/siteuploads/files/sfd80/39753/Aso%20Ke%20Bigad%20Dela%20Holi(Khesari2.IN).mp3',
+    isOffline: false,
+    duration: 238,
+    category: 'New',
+    popularity: 94,
+    releaseDate: '2020-10-01'
+  },
+  {
+    id: '14',
+    title: 'Holi Khelele Bholedani',
+    artist: 'Arvind Akela Kallu',
+    cover: 'https://khesari2.in/siteuploads/thumb/c/25267_4.jpg',
+    audioUrl: 'https://khesari2.in/siteuploads/files/sfd81/40043/Holiya%20Khelele%20Bholedani%20Sanghe%20Gaura%20Rani(Khesari2.IN).mp3',
+    isOffline: false,
+    duration: 258,
+    category: 'New',
+    popularity: 94,
+    releaseDate: '2020-10-01'
   }
 ];
 
