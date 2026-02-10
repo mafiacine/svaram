@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { Tab, Track, RepeatMode } from './types';
 import { MOCK_TRACKS, Icons } from './constants';
@@ -258,7 +259,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className={`relative h-screen flex flex-col max-w-md mx-auto overflow-hidden transition-colors duration-500 shadow-2xl selection:bg-violet-500/30 ${isDarkMode ? 'bg-black text-white' : 'bg-gray-50 text-gray-900'}`}>
+    <div className={`relative h-screen flex flex-col max-w-md mx-auto overflow-hidden transition-all duration-700 shadow-2xl selection:bg-violet-500/30 ${isDarkMode ? 'bg-black text-white' : 'bg-gray-50 text-gray-900'}`}>
       <audio
         ref={audioRef}
         src={currentTrack?.audioUrl}
@@ -271,13 +272,13 @@ const App: React.FC = () => {
       />
 
       {!isOnline && (
-        <div className={`${isDarkMode ? 'bg-fuchsia-600/90' : 'bg-fuchsia-500'} text-white text-[9px] font-black py-1.5 flex items-center justify-center gap-2 z-[70] shadow-lg backdrop-blur-md uppercase tracking-widest`}>
-          <Icons.WifiOff className="w-3.5 h-3.5" /> Offline Radio
+        <div className={`${isDarkMode ? 'bg-fuchsia-600/90' : 'bg-fuchsia-500'} text-white text-[8px] font-black py-1.5 flex items-center justify-center gap-2 z-[70] shadow-md backdrop-blur-md uppercase tracking-[0.2em] animate-pulse`}>
+          <Icons.WifiOff className="w-3 h-3" /> Offline Mode
         </div>
       )}
 
       {isBuffering && (
-        <div className="absolute top-0 left-0 right-0 h-1 bg-violet-500/10 z-[60] overflow-hidden">
+        <div className="absolute top-0 left-0 right-0 h-0.5 bg-violet-500/10 z-[60] overflow-hidden">
           <div className="h-full bg-violet-500 w-1/4 animate-[loading_1.5s_infinite_linear] shadow-[0_0_10px_rgba(139,92,246,0.6)]" />
         </div>
       )}
@@ -302,7 +303,7 @@ const App: React.FC = () => {
         </div>
       )}
 
-      <nav className={`h-[76px] border-t flex items-center justify-around px-3 z-[60] shrink-0 pb-1 backdrop-blur-xl transition-colors duration-500 ${isDarkMode ? 'bg-white/5 border-white/5' : 'bg-white/90 border-gray-200'}`}>
+      <nav className={`h-[72px] border-t flex items-center justify-around px-2 z-[60] shrink-0 pb-2 backdrop-blur-3xl transition-all duration-700 ${isDarkMode ? 'bg-black/90 border-white/5' : 'bg-white/95 border-gray-100'}`}>
         {[
           { tab: Tab.HOME, icon: <Icons.Home />, label: 'Home' },
           { tab: Tab.FOLDER, icon: <Icons.Folder />, label: 'Folder' },
@@ -313,10 +314,10 @@ const App: React.FC = () => {
           <button 
             key={tab}
             onClick={() => setActiveTab(tab)}
-            className={`flex flex-col items-center gap-1.5 transition-all duration-500 px-3 py-1 rounded-2xl ${activeTab === tab ? 'text-violet-500 scale-110' : (isDarkMode ? 'text-white/20 hover:text-white/40' : 'text-gray-400 hover:text-gray-600')}`}
+            className={`group flex flex-col items-center gap-1 transition-all duration-500 px-3 py-1.5 rounded-xl relative ${activeTab === tab ? 'text-violet-500 scale-105' : (isDarkMode ? 'text-white/20 hover:text-white/50' : 'text-gray-400 hover:text-violet-500')}`}
           >
-            <div className={`w-5 h-5 transition-transform duration-500 ${activeTab === tab ? 'rotate-[-5deg]' : ''}`}>{icon}</div>
-            <span className={`text-[8px] font-black uppercase tracking-[0.1em] transition-opacity duration-500 ${activeTab === tab ? 'opacity-100' : 'opacity-60'}`}>{label}</span>
+            <div className={`w-5 h-5 transition-all duration-500 transform group-hover:scale-110 ${activeTab === tab ? 'rotate-[-4deg] drop-shadow-[0_0_5px_rgba(139,92,246,0.3)]' : ''}`}>{icon}</div>
+            <span className={`text-[8px] font-black uppercase tracking-[0.15em] transition-all duration-500 ${activeTab === tab ? 'opacity-100' : 'opacity-40 group-hover:opacity-70'}`}>{label}</span>
           </button>
         ))}
       </nav>
@@ -326,6 +327,7 @@ const App: React.FC = () => {
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
       `}</style>
     </div>
   );

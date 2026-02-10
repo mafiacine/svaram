@@ -1,6 +1,5 @@
-
 {
-  "name": "Svaram Music",
+  "name": "svaram",
   "description": "A high-fidelity music streaming application with offline capabilities and AI-powered recommendations.",
   "requestFramePermissions": [
     "microphone"
